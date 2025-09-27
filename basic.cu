@@ -39,7 +39,7 @@ int main() {
     int blockSize = 256;  //number of threads inside block
     int gridSize = (N + blockSize - 1) / blockSize; //number of blocks
 
-    vectorAdd<<<gridSize, blockSize>>(d_a, d_b, d_c, N);
+    vectorAdd<<<gridSize, blockSize>>>(d_a, d_b, d_c, N);
 
     //copy result back from device to host
     cudaMemcpy(h_c, d_c, size, cudaMemcpyDeviceToHost);
